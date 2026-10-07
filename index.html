@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Customer Churn Prediction</title>
+<style>body{font-family:system-ui;background:#090d12;color:#eee;margin:0}.wrap{max-width:850px;margin:auto;padding:40px 20px}.card{background:#121a22;padding:25px;border-radius:18px;display:grid;gap:14px}label{display:grid;gap:6px}input,select,button{padding:11px;border-radius:9px;border:1px solid #394653;background:#0b1117;color:#eee}button{cursor:pointer;font-weight:700}.result{margin-top:20px;padding:20px;border:1px solid #394653;border-radius:15px}</style></head>
+<body><main class="wrap"><p>Machine Learning Project</p><h1>Customer Churn Prediction</h1><p>Estimate customer churn risk from profile and service information.</p>
+<form method="post" class="card">
+<label>Tenure (months)<input name="tenure_months" type="number" value="12" min="1" required></label>
+<label>Monthly charges<input name="monthly_charges" type="number" value="70" step=".01" min="0" required></label>
+<label>Support tickets<input name="support_tickets" type="number" value="2" min="0" required></label>
+<label>Contract<select name="contract"><option>Month-to-month</option><option>One year</option><option>Two year</option></select></label>
+<label>Internet service<select name="internet_service"><option>DSL</option><option>Fiber optic</option><option>No</option></select></label>
+<label>Payment method<select name="payment_method"><option>Electronic check</option><option>Mailed check</option><option>Bank transfer</option><option>Credit card</option></select></label>
+<label>Senior citizen<select name="senior_citizen"><option value="0">No</option><option value="1">Yes</option></select></label>
+<label>Dependents<select name="dependents"><option value="0">No</option><option value="1">Yes</option></select></label>
+<button>Predict churn risk</button></form>
+{% if result %}<section class="result"><h2>{{result}}</h2><p>Estimated churn probability: <b>{{"%.1f"|format(probability*100)}}%</b></p></section>{% endif %}
+</main></body></html>
